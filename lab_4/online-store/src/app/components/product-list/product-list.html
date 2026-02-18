@@ -1,0 +1,13 @@
+<section class="product-list-section">
+
+  <p class="results-count">
+    Товаров: <strong>{{ filteredProducts.length }}</strong>
+  </p>
+
+  <div class="grid">
+    @for (product of filteredProducts; track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+
+</section>

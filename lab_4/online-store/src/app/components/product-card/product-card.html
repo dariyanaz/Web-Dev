@@ -1,0 +1,52 @@
+<article class="card" (click)="closeShare()">
+
+  <div class="carousel">
+    <img [src]="currentImage()" [alt]="product().name" class="carousel-img" />
+    <button class="nav-btn prev" (click)="prev($event)">&#8249;</button>
+    <button class="nav-btn next" (click)="next($event)">&#8250;</button>
+    <div class="dots">
+      @for (img of product().images; track $index) {
+        <button class="dot" [class.active]="currentIndex() === $index" (click)="goTo($index, $event)"></button>
+      }
+    </div>
+  </div>
+
+  <div class="thumbs">
+    @for (img of product().images; track $index) {
+      <img [src]="img" class="thumb" [class.active-thumb]="currentIndex() === $index" (click)="goTo($index, $event)" />
+    }
+  </div>
+
+  <div class="card-body">
+
+    <h3 class="product-name">{{ product().name }}</h3>
+
+    <div class="rating-row">
+      <div class="stars">
+        @for (star of stars(); track $index) {
+          @if (star === 'full') { <span class="star full">★</span> }
+          @else if (star === 'half') { <span class="star half">★</span> }
+          @else { <span class="star empty">★</span> }
+        }
+      </div>
+      <span class="rating-num">{{ product().rating }}</span>
+    </div>
+
+    <p class="description">{{ product().description }}</p>
+
+    <div class="card-footer">
+      <span class="price">{{ formattedPrice() }}</span>
+
+      <div class="actions">
+        <a [href]="product().link" target="_blank" rel="noopener noreferrer" class="btn-buy">Купить на Kaspi</a>
+
+        <div class="share-wrap">
+          <button class="btn-share" (click)="toggleShare($event)" title="Поделиться">📤</button>
+          @if (shareOpen()) {
+            <div class="share-menu">
+              <button class="share-item tg" (click)="shareTelegram($event)">✈️ Telegram</button>
+              <button class="share-item wa" (click)="shareWhatsApp($event)">💬 WhatsApp</button>
+            </div>
+          }
+        </div>
+      </div>
