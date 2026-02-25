@@ -1,0 +1,115 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f6f8;
+  color: #1a1a1a;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+}
+
+/* ШАПКА */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 20px 32px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.accent {
+  color: #e31e24;
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* КАТЕГОРИИ */
+.categories {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 32px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.category-btn {
+  padding: 14px 22px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.category-btn:hover {
+  color: #e31e24;
+}
+
+.category-btn.active {
+  color: #e31e24;
+  border-bottom-color: #e31e24;
+}
+
+/* КОНТЕНТ */
+.content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ПРИВЕТСТВИЕ */
+.welcome {
+  text-align: center;
+  padding: 80px 20px;
+  color: #aaa;
+}
+
+.welcome-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.welcome p {
+  font-size: 1.1rem;
+  color: #888;
+}
+
+/* КАТАЛОГ */
+.catalog-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .header { padding: 16px; }
+  .categories { padding: 0 16px; }
+  .content { padding: 20px 16px; }
+  .logo { font-size: 1.4rem; }
+}
